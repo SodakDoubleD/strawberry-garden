@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 strawberry-graphql = {extras = ["debug-server"], version = "==0.50.1"}
 uvicorn = {extras = ["standard"], version = "==0.13.4"}
+flask = "==1.1.2"
 
 [dev-packages]
 
