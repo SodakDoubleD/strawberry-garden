@@ -1,7 +1,8 @@
 from typing import List
+
 import strawberry
 
-from type import Fruit
+from strawberry_garden.fruit.type import Fruit
 
 
 def get_fruits():
@@ -13,5 +14,5 @@ def get_fruits():
 
 
 @strawberry.type
-class Query:
+class FruitQueries:
     fruits: List[Fruit] = strawberry.field(resolver=get_fruits)

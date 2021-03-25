@@ -1,6 +1,6 @@
 import strawberry
 
-from type import AddFruitInput, Fruit
+from strawberry_garden.fruit.type import AddFruitInput, Fruit
 
 
 @strawberry.type
