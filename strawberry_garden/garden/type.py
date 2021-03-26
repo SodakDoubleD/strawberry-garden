@@ -1,4 +1,5 @@
-from typing import List
+from dataclasses import field
+from typing import List, Optional
 
 import strawberry
 
@@ -9,14 +10,14 @@ from strawberry_garden.fruit.type import Fruit
 class Garden:
     """ Garden data structure definition for read queries. """
     name: str
-    fruits: List[Fruit]
+    fruits: List[Fruit] = field(default_factory=[])
 
 
 @strawberry.type
 class AddGardenInput:
     """ Input definition for addGarden mutation. """
     name: str
-    fruits: List[Fruit]
+    fruits: Optional[List[Fruit]]
 
 
 @strawberry.type
