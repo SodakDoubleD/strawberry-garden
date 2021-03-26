@@ -20,6 +20,8 @@ GARDEN_LIST = [
 
 @strawberry.type
 class GardenQueries:
+    """ Query definitions for Garden objects. """
+
     @strawberry.field
     def gardens(self) -> List[Garden]:
         """ Query to return all Garden objects. """

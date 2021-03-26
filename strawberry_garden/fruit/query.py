@@ -15,4 +15,5 @@ def get_fruits():
 
 @strawberry.type
 class FruitQueries:
+    """ Query definitions for Fruit objects. """
     fruits: List[Fruit] = strawberry.field(resolver=get_fruits)
