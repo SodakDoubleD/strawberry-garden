@@ -30,5 +30,4 @@ class GardenQueries:
     @strawberry.field
     def garden(self, name: str) -> Optional[Garden]:
         """ Query to return Garden object based on name. """
-        found_value = next(iter(list(filter(lambda x: x.name == name, GARDEN_LIST))), None)
-        return found_value
+        return next(iter(list(filter(lambda x: x.name == name, GARDEN_LIST))), None)
