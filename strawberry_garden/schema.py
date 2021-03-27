@@ -1,8 +1,8 @@
 import strawberry
 
-from strawberry_garden.fruit.mutation import FruitMutations
-from strawberry_garden.fruit.query import FruitQueries
-from strawberry_garden.garden.query import GardenQueries
+from fruit.mutation import FruitMutations
+from fruit.query import FruitQueries
+from garden.query import GardenQueries
 
 
 @strawberry.type(description='Root query to house all other queries.')

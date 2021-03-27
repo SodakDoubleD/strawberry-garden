@@ -2,8 +2,8 @@ from typing import Optional
 
 import strawberry
 
-from strawberry_garden.fruit.query import FRUIT_LIST
-from strawberry_garden.fruit.type import AddFruitInput, Fruit
+from fruit.query import FRUIT_LIST
+from fruit.type import AddFruitInput, Fruit
 
 
 @strawberry.type

@@ -2,7 +2,7 @@ from typing import List, Optional
 
 import strawberry
 
-from strawberry_garden.fruit.type import Fruit
+from fruit.type import Fruit
 
 
 FRUIT_LIST = [

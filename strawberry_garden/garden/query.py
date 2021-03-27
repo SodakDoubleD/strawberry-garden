@@ -2,8 +2,8 @@ from typing import List, Optional
 
 import strawberry
 
-from strawberry_garden.garden.type import Garden
-from strawberry_garden.fruit.type import Fruit
+from garden.type import Garden
+from fruit.type import Fruit
 
 GARDEN_LIST = [
     Garden(name='Harmony Park', fruits=[
