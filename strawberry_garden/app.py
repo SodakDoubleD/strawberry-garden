@@ -1,9 +1,12 @@
-from flask import Flask
+from starlette.applications import Starlette
+from starlette.routing import Route
+from strawberry.asgi import GraphQL
+
+from schema import schema
 
 
-def serve():
-    app = Flask(__name__)
+routes = [
+    Route('/graphql', endpoint=GraphQL(schema, graphiql=True))
+]
 
-
-if __name__ == '__main__':
-    serve()
+app = Starlette(debug=True, routes=routes)
