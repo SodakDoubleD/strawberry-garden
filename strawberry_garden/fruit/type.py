@@ -22,6 +22,7 @@ class AddFruitInput:
 @strawberry.input
 class UpdateFruitInput:
     """ Input definition for updateFruit mutation. """
+    name: str
     quantity: int
 
 

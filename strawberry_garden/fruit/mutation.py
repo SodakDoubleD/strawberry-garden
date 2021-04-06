@@ -1,9 +1,9 @@
-from typing import Optional
+from typing import List, Optional
 
 import strawberry
 
 from fruit.query import FRUIT_LIST
-from fruit.type import AddFruitInput, Fruit
+from fruit.type import AddFruitInput, Fruit, UpdateFruitInput
 
 
 @strawberry.type
@@ -21,3 +21,14 @@ class FruitMutations:
 
         FRUIT_LIST.append(added_fruit)
         return added_fruit
+
+    @strawberry.mutation
+    def update_fruit(self, updated_fruit: UpdateFruitInput) -> List[Fruit]:
+        """ Mutation to update an existing Fruit in the list. """
+        if existing_fruits := [fruit for fruit in FRUIT_LIST if fruit.name == updated_fruit.name]:
+            for fruit in existing_fruits:
+                fruit.quantity = updated_fruit.quantity
+
+            return existing_fruits
+
+        raise Exception(f'Fruit with name `{updated_fruit.name}` not found.')
