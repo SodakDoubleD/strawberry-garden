@@ -1,4 +1,7 @@
+import logging
 import sqlite3
+
+LOG = logging.getLogger(__name__)
 
 
 def migrate():
@@ -9,16 +12,20 @@ def migrate():
     """
     # Create and/or connect to the StrawberryGarden database
     conn = sqlite3.connect('StrawberryGarden.db')
-    cursor = conn.cursor()
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS migrations (
-            primary_key INTEGER PRIMARY KEY,
-            migration_name TEXT NOT NULL,
-            migration_ran_on DATE
-        )
-    ''')
+    try:
+        cursor = conn.cursor()
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS migration (
+                migration_id INTEGER PRIMARY KEY,
+                migration_name TEXT NOT NULL,
+                migration_ran_on DATE NOT NULL
+            )
+        ''')
 
-    conn.commit()
+        conn.commit()
+    except Exception:
+        LOG.exception('Failed to create migration table. Exiting.')
+        return
 
 
 if __name__ == '__main__':
